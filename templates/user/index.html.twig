@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+	Profile
+{% endblock %}
+
+{% set imageProfile = imageProfile %}
+
+
+{% block body %}
+	<div class="container-fluid" style="position:sticky">
+		{% block sidenav %}
+			<div class="row flex-nowrap">
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style=" background: rgba(128, 44, 0, 0.5);  background: -webkit-linear-gradient(to right, rgba(128, 44, 0, 0.5)); background: linear-gradient(to right,rgba(128, 44, 0, 0.5));  min-height: 100vh;">
+
+
+
+					<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100">
+
+						<a href="{{ path('app_user_profile') }}" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+							<i class="fs-4 bi-house"></i>
+							<span class="fs-5 d-none d-sm-inline font-weight-bold">Mon espace</span>
+
+						</a>
+
+						<ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+
+							<li class="nav-item">
+
+								<a href="#" class="nav-link px-0 align-middle  text-white text-decoration-none">
+									<i class="fs-4 bi-house"></i>
+									<span class="ms-1 d-none d-sm-inline">Mes commandes</span>
+								</a>
+
+							</li>
+
+							<li class="nav-item">
+
+								<a href="#" class="nav-link px-0 align-middle  text-white text-decoration-none">
+									<i class="fs-4 bi-house"></i>
+									<span class="ms-1 d-none d-sm-inline">Ma liste d'envies</span>
+								</li>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link  px-0 align-middle  text-white text-decoration-none">
+									<i class="fs-4 bi-house"></i>
+									<span class="ms-1 d-none d-sm-inline">Mes factures</span>
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a href="{{ path('app_contact') }}" class="nav-link px-0 align-middle  text-white text-decoration-none">
+									<i class="fs-4 bi-house"></i>
+									<span class="ms-1 d-none d-sm-inline">Nous contacter</span>
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a href="{{ path('app_user_setting') }}" class="nav-link px-0 align-middle  text-white text-decoration-none">
+									<i class="fs-4 bi-house"></i>
+									<span class="ms-1 d-none d-sm-inline">
+										Mes paramètres
+									</span>
+								</a>
+							</li>
+
+						</ul>
+
+						<hr>
+
+						<div class="dropdown pb-4 mt-4">
+							<a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+
+					<img src="{{ asset('image/' ~ imageProfile) }}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+
+
+								<span class="d-none d-sm-inline mx-1">{{firstName}}
+									{{lastName}}</span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+								{%  if  hasAdminRole == true %}
+									<li>
+										<a class="dropdown-item text-black" href="{{ path('app_admin_produits_index')}}">Administration</a>
+									</li>
+								{% endif %}
+
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li>
+									<a class="dropdown-item text-black" href="{{ path('app_logout') }}">Déconnexion</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			{% endblock %}
+			{% block content %}
+				<div class="col py-3 text-center" style="background-color:#FBFCFB">
+					<div class="row py-4 d-flex justify-content-center">
+						{%for i in 0..8%}
+							<div class="col-3 rounded mx-1 my-4 py-4" style="border: 1px solid #e9ecef">
+								<div class="row">
+									<div class="col-2">image</div>
+									<div class="col-10 ">
+										Vos commandes
+										<p style="font-size:12px">Suivre ou acheter à nouveau</p>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+	{% endblock %}
+{% block footer %}{% endblock %}
+
+	
+
+
+

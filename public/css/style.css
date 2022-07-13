@@ -1,0 +1,204 @@
+.primary-clr {
+    color: rgba(128, 44, 0, 0.79) !important;
+}
+
+.primary-bg-clr {
+    background-color: rgba(128, 44, 0, 0.79) !important;
+    border-color: rgba(128, 44, 0, 0.79) !important;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.marketing h2 {
+    font-weight: 400;
+}
+
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+/* rtl:end:ignore */
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+}
+
+
+/* Side Bar menu*/
+
+aside {
+    border-radius: 1rem !important;
+    height: 100vh;
+    background: rgba(128, 44, 0, 0.5) !important;
+}
+
+aside nav {
+    font-size: 1em;
+    padding: 1em 0 1em 0
+}
+
+aside nav ul {
+    list-style: none;
+}
+
+aside nav ul a li {
+    color: #fff;
+    position: relative;
+    width: calc(100% - 1em);
+    padding: 1em 0 1em 1em;
+}
+
+aside nav ul a li:hover {
+    color: #000;
+    background: rgb(255 255 255);
+    border-radius: 0.5em 0em 0em 0.5em;
+}
+
+aside nav ul a li:hover::before {
+    content: '';
+    position: absolute;
+    background: orange;
+    right: 0px;
+    top: -1em;
+    border-radius: 0em 0em 0.5em 0em;
+    box-shadow: 0.5em 0.5em 0 0 rgb(255 255 255);
+}
+
+aside nav ul a li:hover::after {
+    content: '';
+    position: absolute;
+    background: orange;
+    right: 0px;
+    bottom: -1em;
+    border-radius: 0em 0.5em 0.5em 0em;
+    box-shadow: 0.5em -0.5em 0 0 rgb(255 255 255);
+}
+
+aside nav ul a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.dropdown-menu-dark {
+    color: #dee2e6;
+    background-color: #343a40;
+    border-color: rgba(0, 0, 0, .15);
+}
+.dropdown-menu.show {
+    display: block;
+}
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 0.25rem;
+}
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483645;
+    box-sizing: border-box;
+    width: 100%;
+
+    background-color: #F1F6F4;
+}
+
+.cookie-consent-banner__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.cookie-consent-banner__copy {
+    margin-bottom: 16px;
+}
+
+.cookie-consent-banner__actions {}
+
+.cookie-consent-banner__header {
+    margin-bottom: 8px;
+
+    font-family: "CeraPRO-Bold", sans-serif, arial;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.cookie-consent-banner__description {
+    font-family: "CeraPRO-Regular", sans-serif, arial;
+    font-weight: normal;
+    color: #838F93;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.cookie-consent-banner__cta {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 164px;
+    padding: 11px 13px;
+
+    border-radius: 2px;
+
+    background-color: #2CE080;
+
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    font-family: "CeraPRO-Regular", sans-serif, arial;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.cookie-consent-banner__cta--secondary {
+    padding: 9px 13px;
+
+    border: 2px solid #3A4649;
+
+    background-color: transparent;
+
+    color: #2CE080;
+}
+
+.cookie-consent-banner__cta:hover {
+    background-color: #20BA68;
+}
+
+.cookie-consent-banner__cta--secondary:hover {
+    border-color: #838F93;
+
+    background-color: transparent;
+
+    color: #22C870;
+}
+
+.cookie-consent-banner__cta:last-child {
+    margin-left: 16px;
+}
+

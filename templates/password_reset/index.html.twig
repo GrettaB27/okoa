@@ -1,0 +1,39 @@
+{% extends 'landing.html.twig' %}
+
+{% block title %}Hello PasswordResetController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="example-wrapper">
+
+		<br>
+
+		<h2 class="text-center">Vérification de votre email</h2>
+
+		<br>
+
+		<div class="row">
+
+			{{ form_start(passwordResetForm) }}
+
+			<div class="row">
+
+				<div class="col-12">
+					<div class="md-form mb-2  d-flex justify-content-center">
+						{{ form_row(passwordResetForm.email, {label: 'Email','attr': {'class': 'form-control'}})}}
+					</div>
+				</div>
+				<div class="col-12  text-md-center">
+
+					<button type="submit" class="btn btn-primary mt-3">Valider</button>
+				</div>
+				{{ form_end(passwordResetForm) }}
+
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}
+

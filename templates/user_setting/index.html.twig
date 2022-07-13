@@ -1,0 +1,66 @@
+{% extends 'user/index.html.twig' %}
+
+{% block title %}
+	Paramètres
+{% endblock %}
+
+{% set imageProfile = imageProfile %}
+
+
+{% block content %}
+	<div class="col py-3 text-center" style="background-color:#FBFCFB">
+		<div class="row py-4 d-flex justify-content-center">
+			<h1>Informations
+			</h1>
+			{% for info in  infos %}
+
+				<div class="col-3 rounded mx-1 my-4 py-4" style="border: 1px solid #e9ecef">
+					<a href="{{path('app_user_profile_edit')}}" class="text-decoration-none text-black">
+
+
+						<div class="row">
+							<div class="col-2"><img src="{{info.imageUrl}}"/></div>
+							<div class="col-10 ">
+								{{info.name}}
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+
+			<h1>Préférences
+			</h1>
+			{% for preference in  preferences %}
+				<div class="col-3 rounded mx-1 my-4 py-4" style="border: 1px solid #e9ecef">
+					<div class="row">
+						<div class="col-2"><img src="{{preference.imageUrl}}"/></div>
+						<div class="col-10 ">
+							{{preference.name}}
+							
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+			<h1>Sécurité
+			</h1>
+			{% for securityInfo in  securityInfos %}
+
+				<div class="col-3 rounded mx-1 my-4 py-4" style="border: 1px solid #e9ecef">
+					<a href="{{path(securityInfo.urlPath)}}" class="text-decoration-none text-black">
+						<div class="row">
+							<div class="col-2"><img src="{{securityInfo.imageUrl}}"/></div>
+
+							<div class="col-10 ">
+								{{securityInfo.name}}
+
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}{% endblock %}
+

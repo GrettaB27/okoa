@@ -1,0 +1,93 @@
+<header>
+<nav class="navbar navbar-expand-lg" style="background-color:rgba(120, 41, 0, 0.78);">
+
+		<div
+			class="container-fluid">
+			<!-- <a class="navbar-brand" href="#">OKOAFRO HAIR</a> -->
+			<a href="{{ path('app_accueil')}}">
+
+				<img class="fit-picture" src="{{asset('image/okoaa.png')}}" alt="logo okoa" style="width: 100px; height: auto;">
+
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link text-black" href="{{ path('app_histoire')}}">Histoire</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link text-black" href="{{ path('app_boutique_index')}}">Nos produits</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-black" href="{{ path('app_contact')}}">Contact</a>
+					</li>
+
+
+				</ul>
+
+				{% block shopping_basket %}
+				{% if  shoppingCartCount > 0 %}
+					<li class="nav-item" style="list-style-type: none;">
+						<a href="{{ path('app_panier') }}">
+							<div class="container-cart">
+								<div class="wrapper">
+									<span class='cart-badge' id="targetEl" value="0">
+										{{shoppingCartCount}}</span>
+									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 202 167.3" style="enable-background:new 0 0 202 167.3;" xml:space="preserve">
+										<style type="text/css">
+											.st0 {
+												fill: #ff5f6d;
+											}
+										</style>
+										<g>
+											<g>
+												<path class="st0" d="M156.5,107.5H66.5c-3.4,0-6.3-2.4-7-5.6L45.8,37.2l-12.9-1c-3.9-0.3-6.9-3.7-6.6-7.6c0.3-3.9,3.7-6.9,7.6-6.6l18.3,1.4c3.2,0.2,5.8,2.5,6.4,5.6l13.7,64.2h78.4L161,45.5c0.8-3.9,4.6-6.3,8.5-5.5c3.9,0.8,6.3,4.6,5.5,8.5l-11.5,53.4C162.7,105.1,159.8,107.5,156.5,107.5z"/>
+											</g>
+											<circle class="st0" cx="82.1" cy="130.8" r="14.2"/>
+											<circle class="st0" cx="142" cy="130.8" r="14.2"/>
+										</g>
+									</svg>
+								</div>
+							</div>
+						</a>
+					</li>
+				{% endif %}
+			{% endblock shopping_basket %}
+
+
+			{% if  app.user %}
+				<a href="{{path('app_user_profile')}}">
+					<img class="rounded-circle" style="width:70px; height:70px" src="{{ asset('image/' ~ imageProfile) }}" data-holder-rendered="true">
+				</a>
+			{% endif %}
+		</div>
+
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+{% if not is_granted('ROLE_USER') %}
+
+	<li class="nav-item">
+		<a class="nav-link text-black" href="{{path('app_register')}}">Inscription</a>
+
+	</li>
+
+	<li class="nav-item">
+		<a class="nav-link text-black" href="{{path('app_login')}}">Connexion</a>
+
+	</li>
+
+
+{% endif %}
+
+</ul>
+
+		
+			</div>
+
+		</nav>
+
+	</header>

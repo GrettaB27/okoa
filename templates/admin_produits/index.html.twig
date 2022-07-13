@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits index{% endblock %}
+
+{% block body %}
+
+    <h1>Produits index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.prix }} €</td>
+                <td><img src="{{asset('image/upload/' ~ produit.image)}}"width="30%"</td>
+                <td>
+<a class="text-black" href="{{ path('app_admin_produits_show', {'id': produit.id}) }}">
+<span class="material-icons primary-clr">
+	<span class="material-symbols-outlined">
+		visibility
+	</span>
+</span>
+
+
+
+</a>
+
+<a class="text-black" href="{{ path('app_admin_produits_edit', {'id': produit.id}) }}">
+<span class="material-icons primary-clr">edit</span></a>
+
+                </td>
+                 <td>
+<a href="{{ path('app_panier', {'id': produit.id})}}" class="primary-clr">
+	<span class="material-icons primary-clr">add_circle</span>
+
+</a>
+
+                </td>
+
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_produits_new') }}">Create new</a>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<section class="mb-4">
+
+	<div
+		class="example-wrapper">
+		<!--Section heading-->
+		<h2 class="h1-responsive font-weight-bold text-center my-4">Contactez-nous</h2>
+		<!--Section description-->
+<p class="text-center w-responsive mx-auto mb-5">
+	Avez-vous besoin d'aide?
+	Veuillez soumettre votre demande et nous vous répondrons dans les plus brefs délais.</p>
+
+
+
+		<div
+			class="row">
+
+			<!--Grid column-->
+			<div class="col-md-9 mb-md-0 mb-5">
+				{{ form_start(contactForm) }}
+				<!--Grid row-->
+				<div
+					class="row">
+
+					<!--Grid column-->
+					<div class="col-md-6">
+						<div
+							class="md-form mb-2">
+							{# <input type="text" id="name" name="name" class="form-control">
+																																																																																																																																																																																																																																																																																																																																																																																							<label for="name" class="">Votre nom</label> #}
+
+							{{ form_row(contactForm.nom, {
+					label: 'Nom',
+		'attr': {'class': 'form-control'}
+
+				}) }}
+
+
+						</div>
+					</div>
+					<!--Grid column-->
+
+					<!--Grid column-->
+					<div class="col-md-6">
+						<div
+							class="md-form mb-2">
+							{# <input type="text" id="email" name="email" class="form-control">
+																																																																																																																																																																																																																																																																																																																																																																							<label for="email" class="">Votre e-mail</label> #}
+
+							{{ form_row(contactForm.email, {
+									label: 'Email',
+									'attr': {'class': 'form-control'}
+									}) }}
+
+						</div>
+					</div>
+					<!--Grid column-->
+
+				</div>
+				<!--Grid row-->
+
+				<!--Grid row-->
+				<div class="row">
+					<div class="col-md-12">
+						<div
+							class="md-form mb-2">
+							{# <input type="text" id="subject" name="subject" class="form-control">
+																																																																																																																																																																																																																																																																																																																																																																							<label for="subject" class="">Sujet</label> #}
+
+							{{ form_row(contactForm.sujet, { 
+									label: 'Sujet',
+									'attr': {'class': 'form-control'}
+									}) }}
+
+						</div>
+					</div>
+				</div>
+				<!--Grid row-->
+
+				<!--Grid row-->
+				<div
+					class="row">
+
+					<!--Grid column-->
+					<div class="col-md-12">
+
+						<div
+							class="md-form">
+							{# <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+																																																																																																																																																																																																																																																																																																																																																																							<label for="message">Votre message</label> #}
+							{{ form_row(contactForm.message, {
+									label: 'Message',
+									'attr': {'class': 'form-control'}
+									}) }}
+
+						</div>
+
+					</div>
+				</div>
+				<!--Grid row-->
+
+				<div
+					class=" text-md-left">
+					{# <button type="submit" class="btn btn-primary">Envoyer</button> #}
+
+					{{ form_row(contactForm.valider, {
+            label: 'Valider',
+			'attr': {'class': 'btn btn-success mt-4'}
+        }) }}
+				</div>
+
+				{{ form_end(contactForm) }}
+
+
+				<div class="status"></div>
+			</div>
+			<!--Grid column-->
+
+			<!--Grid column-->
+			<div class="col-md-3 text-center">
+				<ul class="list-unstyled mb-0">
+					<li>
+						<i class="fas fa-map-marker-alt fa-2x"></i>
+						<p>21 rue colette, 91270 Vigneux-Sur-Seine</p>
+					</li>
+
+					<li>
+						<i class="fas fa-phone mt-4 fa-2x"></i>
+						<p>03.27.28.29.30</p>
+					</li>
+
+					<li>
+						<i class="fas fa-envelope mt-4 fa-2x"></i>
+						<p>okoafrohair@gmail.com</p>
+
+					</li>
+				</ul>
+			</div>
+			<!--Grid column-->
+
+		</div>
+	</section>
+	<!--Section: Contact v.2-->
+
+
+{% endblock %}

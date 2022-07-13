@@ -1,0 +1,32 @@
+{% extends 'landing.html.twig' %}
+
+{% block title %}Hello PasswordResetController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="example-wrapper">
+
+		<br>
+
+		<h2 class="text-center">Modifier votre mot de passe</h2>
+
+		<br>
+
+		<div class="row">
+
+			{{ form_start(passwordResetConfirmForm) }}
+			<div class="col-12">
+				<div class="md-form mb-1 d-flex justify-content-center">
+					{{ form_row(passwordResetConfirmForm.plainPassword, {label: 'Mot de passe','attr': {'class': 'form-control'}}) }}
+				</div>
+			</div>
+			<div class="col-12 text-md-center">
+				<button type="submit" class="btn btn-primary mt-3">Valider</button>
+			</div>
+			{{ form_end(passwordResetConfirmForm) }}
+		</div>
+
+
+	{% endblock %}
+

@@ -1,0 +1,80 @@
+{% extends 'landing.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+
+	<div class="example-wrapper  px-4 py-4" style=" box-shadow: 5px 5px 10px 1px #791E1E; border-radius:6px">
+
+		<h2 class="text-center white-75">Inscrivez-vous !
+
+		</h2>
+
+		<div class="d-flex justify-content-center mt-3">
+
+			{{ form_start(registrationForm) }}
+			<div class="row">
+				<div class="col-md-6 ">
+					<div class="md-form mb-2">
+						{{ form_row(registrationForm.nom, {label: 'Nom','attr': {'class': 'form-control'}})}}
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="md-form mb-2">
+						{{ form_row(registrationForm.prenom, {label: 'Prénom','attr': {'class': 'form-control'}})}}
+					</div>
+				</div>
+
+			</div>
+            
+			<div class="row">
+				<div class="col-md-6">
+					<div class="md-form mb-2">
+						{{ form_row(registrationForm.portable, {label: 'Portable','attr': {'class': 'form-control'}})}}
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="md-form mb-2">
+						{{ form_row(registrationForm.email, {label: 'Email','attr': {'class': 'form-control'}})}}
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-14">
+				<div class="md-form mb-2">
+					{{ form_row(registrationForm.plainPassword, {label: 'Mot de passe','attr': {'class': 'form-control'}}) }}
+				</div>
+
+			</div>
+
+			<div class="col-md-14">
+				<div class="md-form mb-2">
+					{{ form_row(registrationForm.adresse, {label: 'Adresse','attr': {'class': 'form-control'}})}}
+				</div>
+			</div>
+
+			<div class="col-md-14">
+				{{ form_row(registrationForm.conditions) }}
+			</div>
+			
+			<div class="d-flex justify-content-end mt-4">
+                <a href="{{path('app_login')}}">
+
+                    Vous possédez déjà un compte ? Identifiez-vous
+                </a>
+            </div>
+
+
+			<div class="text-md-center">
+				<button class="col-12 btn btn-primary mt-3" type="submit">Valider</button>
+			</div>
+            <br>
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitsController!{% endblock %}
+
+{% block body %}
+<h1> Produits</h1>
+
+<div class="container">
+	<div class="row">
+
+		{% for produit in produits %}
+
+			<div class="col-3  mb-4 mt-4">
+				<div class="card">
+					<img src="{{ asset('image/upload/' ~ produit.image) }}" class="card-img-top" alt="">
+					<div class="card-body text-center">
+						<h5 class="card-title ">{{produit.nom}}</h5>
+
+						<p class="card-text">{{produit.description}}</p>
+						
+
+						<a href="{{ path('app_panier_add', {'id': produit.id }) }}" class="btn btn-primary">
+							<span class="material-icons">add_circle</span>
+							Ajouter</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+
+
+
+
+</div>
+{% endblock %}
