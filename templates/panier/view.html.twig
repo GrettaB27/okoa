@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
+{% block title %} Panier {% endblock %}
 
 {% block body %}
 <style>
@@ -9,15 +9,14 @@
 </style>
 
 <div class="example-wrapper">
-<h1>Votre panier !
-</h1>
+<h1> Votre panier ! </h1>
 
 {% if rows | length > 0 %}
 
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Id</th>
+				
 				<th>Nom</th>
 				<th>Prix</th>
 				<th>quantite</th>
@@ -31,11 +30,11 @@
 			{% for row in rows %}
 
 				<tr>
-					<td>{{ row.product.id }}</td>
+					
 					<td>{{ row.product.nom }}</td>
-					<td>{{ row.product.prix }}</td>
+					<td>{{ row.product.prix }} €</td>
 					<td>{{ row.quantite }}</td>
-					<td>{{ row.quantite * row.product.prix }}</td>
+					<td>{{ row.quantite * row.product.prix }} €</td>
 
 					<td>
 						<a href="{{ path('app_panier_remove', {'id': row.product.id}) }}">Supprimer du panier</a>
@@ -54,19 +53,15 @@
 
 	<br/>
 	Total :
-	{{ total }}
+	{{ total }} €
 	<br><br>
 
 	<a href="{{path('app_paiement')}}">Passer la commande</a>
-
 
 {% else %}
 <br>
 	Le panier est vide  <i class="fa-solid fa-face-frown"></i>
 	<br><br>
-
-
-
 
 {% endif %}
 

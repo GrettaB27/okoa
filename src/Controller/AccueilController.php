@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Carbon\Carbon;
+use App\Service\Panier;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -15,11 +16,13 @@ class AccueilController extends AbstractController
 {   
     private $security;
     private $cookie;
+    private $panier;
 
 
-    public function __construct(Security $security)
+    public function __construct(Security $security, Panier $panier)
     {
         $this->security = $security;
+        $this->panier= $panier;
     }
 
     #[Route('/', name: 'app_accueil')]
@@ -31,7 +34,7 @@ class AccueilController extends AbstractController
 
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
-            'shoppingCartCount' => count($session->get('panier') ?? []),
+            'shoppingCartCount' => $this->panier->getTotalQty(),
             'imageProfile'  => !is_null($this->security->getUser()) ?  $this->security->getUser()->getImageProfile() : ' ',
             'lastSeen' => !is_null($request->cookies->get('lastSeen')) ?  $request->cookies->get('lastSeen')  : $this->cookie ?? null
         ]);

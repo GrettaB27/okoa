@@ -2,20 +2,22 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Service\Panier;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
  
     private $security;
 
-    public function __construct(Security $security)
+    public function __construct(Security $security, Panier $panier)
     {
         $this->security = $security;
+        $this->panier =$panier;
     }
 
 
@@ -30,7 +32,7 @@ class UserController extends AbstractController
             'lastName' => $this->security->getUser()->getNom(),
             'firstName' => $this->security->getUser()->getPrenom(),
             'hasAdminRole' => $this->hasAdminRole($this->security->getUser()->getRoles() ?? []),
-            'shoppingCartCount' => count($session->get('panier') ?? []),
+            'shoppingCartCount' => $this->panier->getTotalQty(),
             'imageProfile'  => !is_null($this->security->getUser()) ?  $this->security->getUser()->getImageProfile() : ' ',
         ]);
     }

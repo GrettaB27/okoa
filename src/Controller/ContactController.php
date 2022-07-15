@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Service\Panier;
 use App\Form\ContactFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -13,10 +14,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     private $security;
+    private $panier;
 
-    public function __construct(Security $security)
+    public function __construct(Security $security ,Panier $panier)
     {
         $this->security = $security;
+        $this->panier= $panier;
     }
 
     /**
@@ -49,7 +52,7 @@ class ContactController extends AbstractController
                 // templates/emails/registration.html.twig
                 'accueil/index.html.twig',
                 [
-                    'shoppingCartCount' => count($session->get('panier') ?? []),
+                    'shoppingCartCount' => $this->panier->getTotalQty(),
                     
                 ]
                 );
@@ -63,7 +66,7 @@ class ContactController extends AbstractController
 
         return $this->render('contact/index.html.twig', [
             'contactForm' => $form->createView(),
-            'shoppingCartCount' => count($session->get('panier') ?? []),
+            'shoppingCartCount' => $this->panier->getTotalQty(),
             'imageProfile'  => !is_null($this->security->getUser()) ?  $this->security->getUser()->getImageProfile() : ' ',
         ]);
     }
