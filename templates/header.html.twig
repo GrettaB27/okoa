@@ -30,13 +30,13 @@
 				</ul>
 
 				{% block shopping_basket %}
-				{% if  shoppingCartCount > 0 %}
+				{# {% if  shoppingCartCount > 0 %} #}
 					<li class="nav-item" style="list-style-type: none;">
 						<a href="{{ path('app_panier') }}">
 							<div class="container-cart">
 								<div class="wrapper">
 									<span class='cart-badge' id="targetEl" value="0">
-										{{shoppingCartCount}}</span>
+										{# {{shoppingCartCount}}</span> #}
 									
 									<i class="fa-solid fa-basket-shopping"></i>
 
@@ -45,7 +45,7 @@
 					</li>
 				</a>
 			</li>
-		{% endif %}
+		{# {% endif %} #}
 	{% endblock shopping_basket %}
 
 
