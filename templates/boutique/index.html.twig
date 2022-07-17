@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Nos produits!
+{% block title %}
+	Nos produits!
 {% endblock %}
 
 {% block body %}
 
 	<div class="container-fluid">
 		<div class="row">
-
-
 			<div class="col-lg-2">
 				<p>
 					<h1>Catégories</h1>
@@ -23,34 +22,24 @@
 								{% endfor %}
 
 							</ul>
-
-
 						</nav>
 					</aside>
-
-
 				</p>
 			</div>
 			<div class="col-lg-10">
 				<div class="row">
 					{% for produit in produits %}
-
 						<div class="col-4  mb-4 mt-4">
 							<div class="card">
 								<div class="d-flex justify-content-center">
 									<img src="{{ asset('image/upload/' ~ produit.image) }}" class="card-img-top" style="width:60%; height:200px" ; alt="">
-
-
 								</div>
 								<div class="card-body text-center">
 									<h5 class="card-title ">{{produit.nom}}</h5>
 									<p>{{produit.prix}}€</p>
 
-
 									<p class="card-text">{{produit.description}}</p>
 									<div class="d-flex row mx-auto ">
-
-
 										<a href="{{ path('app_panier_add', {'id': produit.id }) }}">
 											<span class="material-icons primary-clr">add_circle</span>
 
@@ -63,9 +52,7 @@
 					{% endfor %}
 				</div>
 			</div>
-
 		</div>
-
 	</div>
 
 {% endblock %}
