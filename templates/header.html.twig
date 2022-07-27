@@ -10,8 +10,9 @@
 
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -26,6 +27,21 @@
 						<a class="nav-link text-black" href="{{ path('app_contact')}}">Contact</a>
 					</li>
 
+					{% if not is_granted('ROLE_USER') %}
+
+						<li class="nav-item">
+							<a class="nav-link text-black" href="{{path('app_register')}}">Inscription</a>
+
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link text-black" href="{{path('app_login')}}">Connexion</a>
+
+						</li>
+
+
+					{% endif %}
+
 
 				</ul>
 
@@ -37,11 +53,12 @@
 								<div class="wrapper">
 									<span class='cart-badge' id="targetEl" value="0">
 										{# {{shoppingCartCount}}</span> #}
-									
+
 									<i class="fa-solid fa-basket-shopping"></i>
 
+								</div>
 							</div>
-						</div>
+						</li>
 					</li>
 				</a>
 			</li>
@@ -54,23 +71,6 @@
 			<img class="rounded-circle" style="width:70px; height:70px" src="{{ asset('image/profiles/User_Avatar_2.png') }}" data-holder-rendered="true">
 		</a>
 	{% endif %}
-</div>
+	
+</div></ul></div></nav></header><main>
 
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-	{% if not is_granted('ROLE_USER') %}
-
-		<li class="nav-item">
-			<a class="nav-link text-black" href="{{path('app_register')}}">Inscription</a>
-
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link text-black" href="{{path('app_login')}}">Connexion</a>
-
-		</li>
-
-
-	{% endif %}
-
-</ul></div></nav></header><main>

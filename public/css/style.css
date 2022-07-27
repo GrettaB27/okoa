@@ -225,3 +225,7 @@ aside nav ul a {
 .cart-badge{
     color: white;
 }
+
+@media screen and (max-width: 600px) {
+
+}
